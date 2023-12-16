@@ -1,0 +1,23 @@
+topic: ~confirmation()
+language: enu
+include: lexicon_enu.top
+
+proposal: %PlayProposal ~joyful Good choice! You chose to play a game! $playOutput=1
+proposal: %LearnProposal ~joyful Nice! Let's sing together! $learnOutput=1
+
+u:(e:onStart) \pau=400\ \RSPD=85\ What would you like to do? Click on the tablet to choose! \RSPD=100\
+
+u:(play) ^gotoReactivate(PlayProposal)
+u:(learn) ^gotoReactivate(LearnProposal)
+
+u:(e:playAGame) ^gotoReactivate(PlayProposal)
+u:(e:learnASong) ^gotoReactivate(LearnProposal)
+
+# Defining extra concepts out of words or group of words
+#concept:(hello) [hello hi hey "good morning" greetings]
+
+# Catching inputs and triggering outputs
+#u:(e:onStart) $onStopped=1
+
+# Replying to speech
+#u:(~hello) ~hello

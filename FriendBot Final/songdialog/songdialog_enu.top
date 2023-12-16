@@ -1,0 +1,30 @@
+topic: ~songdialog()
+language: enu
+include:lexicon_enu.top
+        
+
+
+concept: (greeting) ^rand[hello hi "hi there" "hey" "hey there"]
+concept: (thanks) ^rand[thanks "thank you"]
+concept: (break1000) \pau=1000\
+concept: (break500) \pau=500\
+concept:(yes) [yes "all right" sure "why not" ok certainly "very well" yep yea definitely amen]
+concept:(no) [no nope "don't want" "no way" never "not at all"]
+concept:(hello) [hello hi hey "good morning" greetings]
+concept:(good)[good nice enjoy love like]
+concept:(bad)[no bad]
+
+
+u:(e:onStart) ^nextProposal
+  
+proposal: ~break1000 ~joyful We will learn the Baby Shark song. Do you know it? $showImage=pics/sharks.jpg 
+    u1:(~yes) ~break1000 okay great dance with me while singing$showImage=pics/shark.jpg  ^run(song) ^nextProposal
+    u1:(~no) ~break1000  ~joyful i'll help you learn it just repeat after me ~break500 and dance $showImage=pics/shark.jpg  ^run(song) ^nextProposal
+
+
+proposal: $showImage=pics/hello.JPG did you like it?
+    u1:(~yes) ~joyful oh that's nice ~break500 i love you guys $onStopped=1   
+    u1: (~no) ~neutral oh that's sad, i hope you will like it next time    $onStopped=1
+
+
+

@@ -1,0 +1,30 @@
+topic: ~introduction()
+language: enu
+
+concept: (greeting) ^rand[hello hi "hi there" "hey" "hey there"]
+concept: (name) [philip sarah joey]
+concept: (thanks) ^rand[thanks "thank you"]
+concept: (age) ^rand[4 5 6 7 8 9]
+concept: (break1000) \pau=1000\
+
+#proposals
+proposal: $showImage=pics/hello.JPG \RSPD=85\ Hello kids, I am Pepper your FriendBot. I am here to enjoy our time together. \pau=300\ \RSPD=100\ ^nextProposal
+
+proposal: %name  What is your name?
+u1:(_~name) $name=$1 I am so happy that you are here $name
+~break1000 
+
+  ^goto(age)
+
+proposal: %age $showImage=pics/thinking.png how old are you?
+u1:( _~age years) So $name is $1 years old. 
+    ~break1000 ^goto(happy)
+    
+proposal: %happy $showImage=pics/happy.JPG Are you happy to be here?
+    u1:(yes) \RSPD=85\ Oh my god me too! \pau=200\  Let us all applaud together \RSPD=100\ 
+ ^run(applause) $onStopped=1
+    u1:(no) Oh I'm so sorry \pau=200\ I hope this will change later on. $onStopped=1
+   
+    
+#dialog
+u: (e:onStart) ^nextProposal

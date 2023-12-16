@@ -1,0 +1,33 @@
+topic: ~intro()
+language: enu
+include:lexicon_enu.top
+
+concept: (greeting) ^rand[hello hi "hi there" "hey" "hey there"]
+concept: (thanks) ^rand[thanks "thank you"]
+concept: (break1000) \pau=1000\
+concept: (break400) \pau=400\
+
+u:(e:onStart) ^nextProposal
+
+#proposals
+proposal: $showImage=pics/MickeyMouse.jpg ^nextProposal
+
+proposal:  ~break1000 ~joyful Are you ready to guess the character? 
+    u1: (yes) ^nextProposal
+    u1: (no) ~neutral \RSPD=85\ Oh no I hope we play together next time. \pau=300\ \RSPD=100\ $onStopped=1
+    
+proposal: $showImage=pics/PeppaPig.jpg  ~break1000 Is this character Peppa  Pig? ~break400 or Minnie?
+     u1:(Peppa Pig) ~joyful Excellent ~break1000 ^nextProposal
+     u1: (Minnie) ~neutral The character in the image is Peppa Pig ~break1000 ^nextProposal
+
+proposal:$showImage=pics/MickeyMouse.jpg Is this character Mickey ? ~break400 or winnie?
+     u1:(Mickey) ~joyful Amazing ^nextProposal ~break1000
+     u1:(winnie) ~neutral No! The character in the image is Micky Mouse ^nextProposal ~break1000
+     
+proposal:$showImage=pics/MathEqu2.jpg Now Let us do some Math.~break400 two plus two is equal to three ? ~break400 or four ?
+    u1:(four) ~joyful You are a smart kid! ^nextProposal ~break1000
+    u1:(three) ~neutral No! The right answer is four.^nextProposal   ~break1000  
+
+proposal:$showImage=pics/hello.JPG Did you enjoy the game?
+    u1:(yes) ~joyful \RSPD=85\ Me too! I really enjoyed playing with you \RSPD=100\ $onStopped=1
+    u1:(no) ~neutral I'm sorry I hope you will enjoy it next time. $onStopped=1

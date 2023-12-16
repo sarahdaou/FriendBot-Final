@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Interact with Pepper</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/w3.css">
+        <link rel="stylesheet" type="text/css" href="../css/formatting.css">
+        <link rel="stylesheet" href="../css/all.css">
+
+        <script src="/libs/qi/2/qi.js"></script>
+        <script src="../js/jquery.js"></script>
+        <script src="../js/help.js"></script>
+        <script src="../js/qievents.js"></script>
+    </head>
+    
+    <body>
+        
+        <!-- Page content -->
+        <div class="w3-content" style="max-width:2000px">
+            <div class="w3-row w3-padding-64" id="riddle">
+                <div class="w3-col m6 w3-padding-large w3-hide-small">
+                    <img id="pageImage" src="../pics/question.jpg" class="w3-round w3-image" alt="Question Pic" width="600" height="750">
+                </div>
+
+                <div class="w3-col m6 w3-padding-large">
+                    <!-- h1 class="w3-center" style="font-size: 55px;font-weight: bold;padding-top:50px;">Good Day!</h1><br -->
+                    <div id="questions">
+                        <h1  style="font-size: 55px;padding-top:50px">
+                            What do you want to do ?</span><br>
+                        </h1>
+                        <div style="overflow:auto;">
+                            <div style="float:center;">
+                                <hr>
+                                <p class="w3-center">
+                                    <!-- a href="../index.html" -->
+                                        <button type="button" id="play" onclick="raiseConfirmationEvent('playAGame')" class="fa rate-button rounded-rect-btn brown-btn" style="font-size:40px;">
+                                            <span class="fa-hand-point-down"></span><br>
+                                            <span class="default-font">PLAY A GAME </span>
+                                        </button>
+                                    <!-- /a -->
+                                </p>
+                                <p class="w3-center">
+                                    <!-- a href="../index.html" style="padding-left: 30px;" -->
+                                        <button type="button" id="learn" onclick="raiseConfirmationEvent('learnASong')" class="fa rate-button rounded-rect-btn green-btn" style="font-size:40px;">
+                                            <span class="default-font">LEARN A SONG</span><br>
+                                            <span class="fa-hand-point-up"></span>
+                                        </button>
+                                    <!-- /a -->
+                                </p>
+                                <hr>
+                                <p></p>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+            
+            <hr>
+        </div>
+    </body>
+
+    <script type="text/javascript">
+        displayPageInformation();
+    </script>
+</html>
